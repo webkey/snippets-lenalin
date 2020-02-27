@@ -1,0 +1,99 @@
+@mixin clearfix() {
+	&::before,
+	&::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin input-placeholder {
+	&.placeholder {
+		@content;
+	}
+
+	&:-moz-placeholder {
+		@content;
+	}
+
+	&:-ms-input-placeholder {
+		@content;
+	}
+
+	&:-webkit-input-placeholder {
+		@content;
+	}
+}
+
+@mixin below($width, $orientation: 'width') {
+	@media screen and (max-#{$orientation}: $width) {
+		@content;
+	}
+}
+
+@mixin above($width, $orientation: 'width') {
+	@media screen and (min-#{$orientation}: $width) {
+		@content;
+	}
+}
+
+@mixin between($minWidth, $maxWidth, $orientation: 'width') {
+	@media screen and (min-#{$orientation}: $minWidth) and (max-#{$orientation}: $maxWidth) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@media (min-width: #{$sm}) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (min-width: #{$md}) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media (min-width: #{$lg}) {
+		@content;
+	}
+}
+
+@mixin xl {
+	@media (min-width: #{$xl}) {
+		@content;
+	}
+}
+
+@mixin truncate($truncation-boundary) {
+	max-width: $truncation-boundary;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@mixin fix-text-size-adjust() {
+	background-image: linear-gradient(transparent, transparent);
+}
+
+@mixin margin-x($margin) {
+	margin-left: $margin;
+	margin-right: $margin;
+}
+
+@mixin margin-y($margin) {
+	margin-top: $margin;
+	margin-bottom: $margin;
+}
+
+@mixin padding-x($padding) {
+	padding-left: $padding;
+	padding-right: $padding;
+}
+
+@mixin padding-y($padding) {
+	padding-top: $padding;
+	padding-bottom: $padding;
+}
